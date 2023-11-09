@@ -42,7 +42,6 @@ Just Do It
 # 制作時間
 	アプリケーションを制作するのにかけた時間。
 
-
 # テーブル設計
 
 ## users テーブル
@@ -53,11 +52,23 @@ Just Do It
 | email              | string | null: false |
 | encrypted_password | string | null: false |
 
+### Association
+
+- has_many :folder_users
+- has_many :folders, through: :folder_users
+- has_many :messages
+
 ## folders テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
+
+### Association
+
+- has_many :folder_users
+- has_many :users, through: :folder_users
+- has_many :messages
 
 ## folder_users テーブル
 
@@ -66,10 +77,21 @@ Just Do It
 | user   | references | null: false, foreign_key: true |
 | folder | references | null: false, foreign_key: true |
 
-## todo テーブル
+### Association
+
+- belongs_to :folder
+- belongs_to :user
+
+## tasks テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
+| check_done | integer     |                                |
 | user    | references | null: false, foreign_key: true |
-| folder  | references | null: false, foreign_key: true |
+| folders | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :folders
+- belongs_to :user
