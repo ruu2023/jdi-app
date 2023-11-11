@@ -4,11 +4,10 @@
     <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: 'side-bar__btn'%>
   </div><!-- /.side-bar__top -->
   <div class="side-bar__bottom">
-    <div class="side-bar__column">
-      Archive
-    </div><!-- /.side-bar__column -->
-    <div class="side-bar__column">
-      Task
-    </div><!-- /.side-bar__column -->
+    <% @folders.each do |folder| %>
+      <div class="side-bar__column">
+        <%= folder.name %>
+      </div><!-- /.side-bar__column -->
+    <% end %>
   </div><!-- /.side-bar__bottom -->
 </div><!-- /.side-bar -->
