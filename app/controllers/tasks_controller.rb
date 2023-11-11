@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   
   def index
     set_folder
-    @folders = Folder.all
+    all_folder
     @tasks = @folder.tasks.includes(:user)
     @task = Task.new
   end
@@ -13,7 +13,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to folder_tasks_path(@folder)
     else
-      @tasks = @folder.tasks.include(:user)
+      all_folder
+      @tasks = @folder.tasks.includes(:user)
       render :index, status: :unprocessable_entity
     end
   end
@@ -22,6 +23,10 @@ class TasksController < ApplicationController
   
   def set_folder
     @folder = Folder.find(params[:folder_id])
+  end
+  
+  def all_folder
+    @folders = Folder.all
   end
 
   def task_params
