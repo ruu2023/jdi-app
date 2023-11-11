@@ -1,0 +1,177 @@
+$top-blue: #253151;
+$bottom-blue: #2F3E51;
+$white: #fffff3;
+$cream: #fdffd3fa;
+$gray: #DDDDDD;
+$font-white: #fafafafa;
+$message-color: #434A54;
+
+$side-bar-padding: 20px;
+$main-chat-padding: 40px;
+
+.wrapper {
+  width: 100vw;
+  display: flex;
+}
+
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  overflow: scroll;
+  background: $top-blue;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 $side-bar-padding;
+    background: $top-blue;
+  }
+  &__name {
+    font-size: 16px;
+    color: $font-white;
+  }
+  &__btn {
+    padding: 14px;
+    font-size: 10px;
+    color: deepskyblue;
+    border: solid lightblue 1px;
+  }
+  &__bottom {
+    height: calc(100vh - 100px);
+    padding: 0 $side-bar-padding;
+    background: $bottom-blue;
+  }
+  &__column {
+    padding: 20px 0;
+    font-size: 16px;
+    color: $font-white;
+  }
+}
+
+.main-chat {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  background: $white;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 $main-chat-padding;
+    background: $white;
+  }
+  &__name {
+    font-size: 24px;
+    color: #333;
+  }
+  &__btn {
+    padding: 20px;
+    font-size: 10px;
+    color: darkred;
+    border: solid darkred 1px;
+  }
+  &__middle {
+    height: calc(100vh - 190px);
+    padding: 46px $main-chat-padding 0;
+    background: $white;
+  }
+  &__message {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: $cream;
+    box-shadow: 10px 5px 5px $gray;
+  }
+  &__check {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    position: relative;
+    width: auto;
+  }
+  &__task {
+    font-size: 16px;
+    color: $message-color;
+  }
+  &__time {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10px;
+    font-size: 12px;
+    color: #999;
+  }
+  &__bottom {
+    display: flex;
+    height: 90px;
+    padding: 20px $main-chat-padding;
+    background: $gray;
+  }
+  &__input-area {
+    width: 100%;
+    background: white;
+  }
+  &__input {
+    width: 100%;
+    height: 50px;
+    border: none;
+  }
+  &__submit {
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #38AEF0;
+    border: none;
+  }
+}
+
+
+/* チェックボックス */
+input[type=checkbox] {
+  display: none;
+}
+.main-chat__check {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 20px;
+  position: relative;
+  width: auto;
+  &::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+  }
+  &::after {
+    border-right: 6px solid #00cccc;
+    border-bottom: 3px solid #00cccc;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 7px;
+    margin-top: -16px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 9px;
+  }
+}
+input[type=checkbox]:checked + .main-chat__check::before {
+  border-color: #666;
+}
+input[type=checkbox]:checked + .main-chat__check::after {
+  opacity: 1;
+}
