@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_11_113738) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_115835) do
   create_table "folders", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", charset: "utf8", force: :cascade do |t|
+    t.string "content"
+    t.integer "check_done"
+    t.bigint "user_id", null: false
+    t.bigint "folder_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_tasks_on_folder_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -30,4 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_11_113738) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "folders"
+  add_foreign_key "tasks", "users"
 end
