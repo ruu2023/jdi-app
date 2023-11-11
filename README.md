@@ -56,7 +56,7 @@ Just Do It
 
 - has_many :folder_users
 - has_many :folders, through: :folder_users
-- has_many :messages
+- has_many :tasks
 
 ## folders テーブル
 
@@ -68,7 +68,7 @@ Just Do It
 
 - has_many :folder_users
 - has_many :users, through: :folder_users
-- has_many :messages
+- has_many :tasks
 
 ## folder_users テーブル
 
@@ -84,14 +84,14 @@ Just Do It
 
 ## tasks テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| check_done | integer     |                                |
-| user    | references | null: false, foreign_key: true |
-| folders | references | null: false, foreign_key: true |
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| content    | string     |                                |
+| check_done | integer    |                                |
+| user       | references | null: false, foreign_key: true |
+| folder     | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :folders
+- belongs_to :folder
 - belongs_to :user

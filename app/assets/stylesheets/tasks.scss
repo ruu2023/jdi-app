@@ -44,8 +44,10 @@ $main-chat-padding: 40px;
   }
   &__column {
     padding: 20px 0;
-    font-size: 16px;
-    color: $font-white;
+    & a {
+      font-size: 16px;
+      color: $font-white;
+    }
   }
 }
 
