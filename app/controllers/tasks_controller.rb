@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   
   def index
-    @folders = Folder.all
-    @task = Task.new
     set_folder
+    @folders = Folder.all
+    @tasks = @folder.tasks.includes(:user)
+    @task = Task.new
   end
   
   def create
@@ -12,6 +13,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to folder_tasks_path(@folder)
     else
+      @tasks = @folder.tasks.include(:user)
       render :index, status: :unprocessable_entity
     end
   end
