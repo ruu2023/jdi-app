@@ -6,7 +6,7 @@
   <div class="side-bar__bottom">
     <% @folders.each do |folder| %>
       <div class="side-bar__column">
-        <%= folder.name %>
+        <%= link_to folder.name, folder_tasks_path(folder) %>
       </div><!-- /.side-bar__column -->
     <% end %>
   </div><!-- /.side-bar__bottom -->

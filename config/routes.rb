@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   get 'tasks/index'
   root to: "tasks#index"
   resources :users, only: [:edit, :update]
+  resources :folders, only: [:new, :create] do
+    resources :tasks, only: [:index, :create]
+  end
 end

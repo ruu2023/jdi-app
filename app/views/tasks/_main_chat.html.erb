@@ -27,10 +27,10 @@
       </div><!-- /.main-chat__time -->
     </div><!-- /.main-chat__message -->
   </div><!-- /.main-chat__middle -->
-  <div class="main-chat__bottom">
+  <%= form_with model: [@folder, @task], class: 'main-chat__bottom', local: true do |f| %>
     <div class="main-chat__input-area">
-      <input class="main-chat__input" placeholder= "type a task">
+      <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
     </div>
-    <input type="submit" class="main-chat__submit">
-  </div><!-- /.main-chat__bottom -->
+    <%= f.submit '送信', class: 'main-chat__submit'%>
+  <% end %>
 </div><!-- /.main-chat -->
