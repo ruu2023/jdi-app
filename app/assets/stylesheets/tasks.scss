@@ -74,8 +74,9 @@ $main-chat-padding: 40px;
     border: solid darkred 1px;
   }
   &__middle {
+    overflow: scroll;
     height: calc(100vh - 190px);
-    padding: 46px $main-chat-padding 0;
+    padding: 0px $main-chat-padding 0;
     background: $white;
   }
   &__message {
@@ -95,8 +96,19 @@ $main-chat-padding: 40px;
     width: auto;
   }
   &__task {
+    display: flex;
+    align-items: center;
     font-size: 16px;
     color: $message-color;
+  }
+  &__archive {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    background: none;
+    color: black;
+    border: solid black 1px;
   }
   &__time {
     display: flex;

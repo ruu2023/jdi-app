@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   def index
     set_folder
     all_folder
-    @tasks = @folder.tasks.includes(:user)
+    @tasks = @folder.tasks.includes(:user).order(created_at: :desc)
     @task = Task.new
   end
   
@@ -16,6 +16,20 @@ class TasksController < ApplicationController
       all_folder
       @tasks = @folder.tasks.includes(:user)
       render :index, status: :unprocessable_entity
+    end
+  end
+
+  def destroy_all
+    set_folder
+    @folder.tasks.destroy_all
+    redirect_to folder_tasks_path(@folder), notice: 'All tasks were successfully deleted.'
+  end
+
+  def update
+    set_folder
+    @task = Task.find(params[:id])
+    if @task.update(folder_id: 1)
+      redirect_to folder_tasks_path(@folder)
     end
   end
   
