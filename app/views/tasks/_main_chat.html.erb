@@ -6,12 +6,18 @@
     <%= link_to 'ALL CLEAR', destroy_all_folder_tasks_path(@folder), data: { turbo_method: :delete }, class: 'main-chat__btn' %>
   </div><!-- /.main-chat__top -->
   <div class="main-chat__middle">
-    <%= render partial: 'task', collection: @tasks %>
+    <% if @folder.id == 2%>
+      <%= render partial: 'task', collection: @tasks %>
+    <% else %>
+      <%= render partial: 'archive', collection: @tasks %>
+    <% end %>
   </div><!-- /.main-chat__middle -->
-  <%= form_with model: [@folder, @task], class: 'main-chat__bottom', local: true do |f| %>
-    <div class="main-chat__input-area">
-      <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
-    </div>
-    <%= f.submit '送信', class: 'main-chat__submit'%>
+  <% if @folder.id == 2%>
+    <%= form_with model: [@folder, @task], class: 'main-chat__bottom', local: true do |f| %>
+      <div class="main-chat__input-area">
+        <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
+      </div>
+      <%= f.submit '送信', class: 'main-chat__submit'%>
+    <% end %>
   <% end %>
 </div><!-- /.main-chat -->

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   def index
     set_folder
     all_folder
-    @tasks = @folder.tasks.includes(:user)
+    @tasks = @folder.tasks.includes(:user).order(created_at: :desc)
     @task = Task.new
   end
   
@@ -25,9 +25,12 @@ class TasksController < ApplicationController
     redirect_to folder_tasks_path(@folder), notice: 'All tasks were successfully deleted.'
   end
 
-  def archive
+  def update
     set_folder
-    
+    @task = Task.find(params[:id])
+    if @task.update(folder_id: 1)
+      redirect_to folder_tasks_path(@folder)
+    end
   end
   
   private

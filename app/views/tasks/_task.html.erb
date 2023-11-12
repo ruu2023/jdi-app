@@ -1,7 +1,10 @@
 <div class="main-chat__message">
   <div class="main-chat__task">
-    <input type="checkbox" id="01" name="checkbox"><label for="01" class="main-chat__check"></label>
-    <%= task.content %>
+    <%= form_with model: [@folder, task], method: :put, local: true do |f| %>
+      <%= f.submit 'DONE', class: 'main-chat__archive' %>
+    <% end %>
+    <%# <input type="checkbox" id="01" name="checkbox"><label for="01" class="main-chat__check"></label> %>
+    <span class="main-chat__task-content"><%= task.content %></span><!-- /.main-chat__task-content -->
   </div><!-- /.main-chat__task -->
   <div class="main-chat__time">
     <%= l task.created_at %>
