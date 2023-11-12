@@ -18,6 +18,17 @@ class TasksController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
+
+  def destroy_all
+    set_folder
+    @folder.tasks.destroy_all
+    redirect_to folder_tasks_path(@folder), notice: 'All tasks were successfully deleted.'
+  end
+
+  def archive
+    set_folder
+    
+  end
   
   private
   
