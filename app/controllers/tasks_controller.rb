@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   def index
     set_folder
     all_folder
-    @tasks = @folder.tasks.includes(:user).order(created_at: :desc)
+    @tasks = @folder.tasks.includes(:user).rank(:row_order)
+    @tasks_desc = @folder.tasks.includes(:user).order(created_at: :desc)
     @task = Task.new
   end
   
@@ -31,6 +32,12 @@ class TasksController < ApplicationController
     if @task.update(folder_id: 1)
       redirect_to folder_tasks_path(@folder)
     end
+  end
+
+  def sort
+    @task = Task.find(params[:id])
+    @task.update(row_order_position: params[:row_order_position])
+    head :no_content  
   end
   
   private

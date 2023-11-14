@@ -1,3 +1,4 @@
+<li data-sortable-id="<%= task.id %>">
 <div class="main-chat__message">
   <div class="main-chat__task">
     <%= form_with model: [@folder, task], method: :put, local: true do |f| %>
@@ -10,3 +11,4 @@
     <%= l task.created_at %>
   </div><!-- /.main-chat__time -->
 </div><!-- /.main-chat__message -->
+</li>

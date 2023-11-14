@@ -5,11 +5,16 @@
     </div><!-- /.main-chat__name -->
     <%= link_to 'ALL CLEAR', destroy_all_folder_tasks_path(@folder), data: { turbo_method: :delete }, class: 'main-chat__btn' %>
   </div><!-- /.main-chat__top -->
-  <div class="main-chat__middle">
+  <div class="main-chat__middle
+  <% if @folder.id == 1 %>
+    main-chat__middle--height
+  <% end %>">
     <% if @folder.id == 2%>
+    <ul data-controller="sortable">
       <%= render partial: 'task', collection: @tasks %>
+    </ul>
     <% else %>
-      <%= render partial: 'archive', collection: @tasks %>
+      <%= render partial: 'archive', collection: @tasks_desc %>
     <% end %>
   </div><!-- /.main-chat__middle -->
   <% if @folder.id == 2%>

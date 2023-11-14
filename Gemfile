@@ -73,3 +73,5 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+gem 'ranked-model'
+gem 'requestjs-rails'
