@@ -3,5 +3,7 @@ class Task < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true
-end
 
+  include RankedModel
+  ranks :row_order
+end

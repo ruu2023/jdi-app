@@ -78,6 +78,9 @@ $main-chat-padding: 40px;
     height: calc(100vh - 190px);
     padding: 0px $main-chat-padding 0;
     background: $white;
+    &--height {
+      height: calc(100vh - 100px);
+    }
   }
   &__message {
     display: flex;
