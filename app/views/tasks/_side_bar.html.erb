@@ -4,6 +4,7 @@
     <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: 'side-bar__btn'%>
   </div><!-- /.side-bar__top -->
   <div class="side-bar__bottom">
-    
+    <span id="archive-link" class="side-bar__link">Archive</span>
+    <span id="task-link" class="side-bar__link active">Task</span>
   </div><!-- /.side-bar__bottom -->
 </div><!-- /.side-bar -->

@@ -1,5 +1,6 @@
 $top-blue: #253151;
 $bottom-blue: #2F3E51;
+$bottom-blue--active: #8a7ed9;
 $white: #fffff3;
 $cream: #fdffd3fa;
 $gray: #DDDDDD;
@@ -39,14 +40,17 @@ $main-chat-padding: 40px;
   }
   &__bottom {
     height: calc(100vh - 100px);
-    padding: 0 $side-bar-padding;
+    padding: 0;
     background: $bottom-blue;
   }
-  &__column {
-    padding: 20px 0;
-    & a {
-      font-size: 16px;
-      color: $font-white;
+  &__link {
+    display: block;
+    padding: 20px $side-bar-padding;
+    font-size: 16px;
+    color: $font-white;
+    cursor: pointer;
+    &.active {
+      background: $bottom-blue--active;
     }
   }
 }

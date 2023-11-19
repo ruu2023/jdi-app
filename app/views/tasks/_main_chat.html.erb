@@ -7,8 +7,11 @@
   </div><!-- /.main-chat__top -->
   <div class="main-chat__middle">
     
-    <ul data-controller="sortable">
+    <ul id="main-chat__task" data-controller="sortable">
       <%= render partial: 'task', collection: @tasks %>
+    </ul>
+    <ul id="main-chat__archive" data-controller="sortable" style="display:none">
+      <%= render partial: 'archive', collection: @archives %>
     </ul>
     
   </div><!-- /.main-chat__middle -->
