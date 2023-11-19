@@ -1,28 +1,22 @@
 <div class="main-chat">
   <div class="main-chat__top">
     <div class="main-chat__name">
-      <%= @folder.name %>
+      
     </div><!-- /.main-chat__name -->
-    <%= link_to 'ALL CLEAR', destroy_all_folder_tasks_path(@folder), data: { turbo_method: :delete }, class: 'main-chat__btn' %>
+    <%= link_to 'ALL CLEAR', destroy_all_tasks_path(@task_all), data: { turbo_method: :delete }, class: 'main-chat__btn' %>
   </div><!-- /.main-chat__top -->
-  <div class="main-chat__middle
-  <% if @folder.id == 1 %>
-    main-chat__middle--height
-  <% end %>">
-    <% if @folder.id == 2%>
+  <div class="main-chat__middle">
+    
     <ul data-controller="sortable">
       <%= render partial: 'task', collection: @tasks %>
     </ul>
-    <% else %>
-      <%= render partial: 'archive', collection: @tasks_desc %>
-    <% end %>
+    
   </div><!-- /.main-chat__middle -->
-  <% if @folder.id == 2%>
-    <%= form_with model: [@folder, @task], class: 'main-chat__bottom', local: true do |f| %>
+  
+    <%= form_with model: @task, class: 'main-chat__bottom', local: true do |f| %>
       <div class="main-chat__input-area">
         <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
       </div>
       <%= f.submit '送信', class: 'main-chat__submit'%>
     <% end %>
-  <% end %>
 </div><!-- /.main-chat -->
