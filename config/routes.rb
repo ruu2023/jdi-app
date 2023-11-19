@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "tasks#index"
   resources :users, only: [:edit, :update]
   resources :folders, only: [:new, :create] do
-    resources :tasks, only: [:index, :create, :destroy, :update] do
+    resources :tasks, only: [:index, :create, :destroy] do
       collection do
         delete 'destroy_all', to: 'tasks#destroy_all'
       end

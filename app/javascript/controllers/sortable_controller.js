@@ -13,7 +13,7 @@ export default class extends Controller {
   onEnd(evt) {
 		console.log(evt.item.dataset.sortableId)
 		console.log(evt.newIndex)
-    put(`/folders/1/tasks/${evt.item.dataset.sortableId}/sort`, {
+    put(`/folders/2/tasks/${evt.item.dataset.sortableId}/sort`, {
       body: JSON.stringify({row_order_position: evt.newIndex})
     })
   }

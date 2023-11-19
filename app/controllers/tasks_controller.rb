@@ -26,18 +26,25 @@ class TasksController < ApplicationController
     redirect_to folder_tasks_path(@folder), notice: 'All tasks were successfully deleted.'
   end
 
-  def update
-    set_folder
-    @task = Task.find(params[:id])
-    if @task.update(folder_id: 1)
-      redirect_to folder_tasks_path(@folder)
-    end
-  end
+  # def update
+  #   set_folder
+  #   @task = Task.find(params[:id])
+  #   if @task.update(folder_id: 1)
+  #     redirect_to folder_tasks_path(@folder)
+  #   end
+  # end
 
   def sort
     @task = Task.find(params[:id])
     @task.update(row_order_position: params[:row_order_position])
     head :no_content  
+  end
+
+  def mark_as_done
+    task = Task.find(params[:id])
+    done_task = Done.create(task: task) # Doneモデルに新しいレコードを作成し、関連付けられたタスクを渡す
+    task.destroy # タスクを削除するか、もしくは「done」状態にマークする方法を選択
+    redirect_to tasks_path, notice: 'Task marked as done successfully.'
   end
   
   private
