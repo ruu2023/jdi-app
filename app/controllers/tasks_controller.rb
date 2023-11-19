@@ -9,7 +9,6 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.new(task_params)
-    binding.pry
     if @task.save
       redirect_to root_path
     else
@@ -23,14 +22,6 @@ class TasksController < ApplicationController
     redirect_to root_path, notice: 'All tasks were successfully deleted.'
   end
 
-  # def update
-  #   set_folder
-  #   @task = Task.find(params[:id])
-  #   if @task.update(folder_id: 1)
-  #     redirect_to folder_tasks_path(@folder)
-  #   end
-  # end
-
   def sort
     @task = Task.find(params[:id])
     @task.update(row_order_position: params[:row_order_position])
@@ -39,11 +30,22 @@ class TasksController < ApplicationController
 
   def mark_as_done
     task = Task.find(params[:id])
-    done_task = Archive.create(task: task) # Doneモデルに新しいレコードを作成し、関連付けられたタスクを渡す
-    task.destroy # タスクを削除するか、もしくは「done」状態にマークする方法を選択
+    done_task = Archive.create(user_id: task.user_id, content: task.content)
+    task.destroy
     redirect_to root_path, notice: 'Task marked as done successfully.'
   end
-  
+
+  # def update
+  #   set_folder
+  #   @task = Task.find(params[:id])
+  #   if @task.update(folder_id: 1)
+  #     redirect_to folder_tasks_path(@folder)
+  #   end
+  # end
+
+  # , row_order: task.row_order, created_at: task.created_at, updated_at: task.updated_at
+
+
   private
   def task_params
     params.require(:task).permit(:content).merge(user_id: current_user.id)

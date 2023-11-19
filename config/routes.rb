@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     member do
       put :sort
-      patch 'mark_as_done'
+      patch 'mark_as_done', to: 'tasks#mark_as_done'
     end
   end
 end
