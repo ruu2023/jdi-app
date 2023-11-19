@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_14_151239) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_19_120929) do
+  create_table "archives", charset: "utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.integer "row_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_archives_on_user_id"
+  end
+
   create_table "folders", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -19,13 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_151239) do
 
   create_table "tasks", charset: "utf8", force: :cascade do |t|
     t.string "content"
-    t.integer "priority"
     t.bigint "user_id", null: false
-    t.bigint "folder_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "row_order"
-    t.index ["folder_id"], name: "index_tasks_on_folder_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -42,6 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_151239) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "tasks", "folders"
+  add_foreign_key "archives", "users"
   add_foreign_key "tasks", "users"
 end

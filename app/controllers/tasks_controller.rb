@@ -1,37 +1,26 @@
 class TasksController < ApplicationController
   
   def index
-    set_folder
-    all_folder
-    @tasks = @folder.tasks.includes(:user).rank(:row_order)
-    @tasks_desc = @folder.tasks.includes(:user).order(created_at: :desc)
+    @tasks = Task.includes(:user).rank(:row_order)
+    @archives = Archive.all
+    @tasks_desc = Task.includes(:user).order(created_at: :desc)
+    @task_all = Task.all
     @task = Task.new
   end
   
   def create
-    set_folder
-    @task = @folder.tasks.new(task_params)
+    @task = Task.new(task_params)
     if @task.save
-      redirect_to folder_tasks_path(@folder)
+      redirect_to root_path
     else
-      all_folder
-      @tasks = @folder.tasks.includes(:user)
+      @tasks = Task.includes(:user)
       render :index, status: :unprocessable_entity
     end
   end
 
   def destroy_all
-    set_folder
-    @folder.tasks.destroy_all
-    redirect_to folder_tasks_path(@folder), notice: 'All tasks were successfully deleted.'
-  end
-
-  def update
-    set_folder
-    @task = Task.find(params[:id])
-    if @task.update(folder_id: 1)
-      redirect_to folder_tasks_path(@folder)
-    end
+    Task.delete_all
+    redirect_to root_path, notice: 'All tasks were successfully deleted.'
   end
 
   def sort
@@ -39,17 +28,26 @@ class TasksController < ApplicationController
     @task.update(row_order_position: params[:row_order_position])
     head :no_content  
   end
-  
-  private
-  
-  def set_folder
-    @folder = Folder.find(params[:folder_id])
-  end
-  
-  def all_folder
-    @folders = Folder.all
+
+  def mark_as_done
+    task = Task.find(params[:id])
+    done_task = Archive.create(user_id: task.user_id, content: task.content)
+    task.destroy
+    redirect_to root_path, notice: 'Task marked as done successfully.'
   end
 
+  # def update
+  #   set_folder
+  #   @task = Task.find(params[:id])
+  #   if @task.update(folder_id: 1)
+  #     redirect_to folder_tasks_path(@folder)
+  #   end
+  # end
+
+  # , row_order: task.row_order, created_at: task.created_at, updated_at: task.updated_at
+
+
+  private
   def task_params
     params.require(:task).permit(:content).merge(user_id: current_user.id)
   end
