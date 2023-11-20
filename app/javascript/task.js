@@ -51,6 +51,7 @@ buttonsOpen.forEach(function(el){
   el.addEventListener('click', modalOpen);
   function modalOpen() {
     modal.style.display = 'block';
+    // const taskData = JSON.parse(el.dataset.task);
     modalTitle.textContent = this.textContent
   }
 });
