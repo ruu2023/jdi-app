@@ -34,9 +34,9 @@ Just Do It
 # 実装予定の機能
 - タスクの「今はやらない」エリアを作ります。
 # データベース設計
-	![ER](https://github.com/ruu2023/jdi-app/assets/125800583/69b57bf3-a079-45cd-b81e-32bd8650597d)
+![ER](https://github.com/ruu2023/jdi-app/assets/125800583/69b57bf3-a079-45cd-b81e-32bd8650597d)
 # 画面遷移図
-	![window](https://github.com/ruu2023/jdi-app/assets/125800583/d54b8ee0-e924-4752-9673-b9f3882400f6)
+![window](https://github.com/ruu2023/jdi-app/assets/125800583/d54b8ee0-e924-4752-9673-b9f3882400f6)
 # 開発環境
 - フロントエンド
 - バックエンド
