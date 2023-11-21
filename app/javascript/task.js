@@ -1,7 +1,12 @@
 // サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('DOMContentLoaded', LinkClick);
+document.addEventListener('DOMContentLoaded', function(){
+  if (document.querySelector('.task-page')) {LinkClick}
+});
 // サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('turbo:load', LinkClick);
+document.addEventListener('turbo:load', function(){
+  if (document.querySelector('.task-page')) {LinkClick}
+});
+
 
 function LinkClick() {
   const mainChatTask = document.getElementById('main-chat__task');
@@ -39,33 +44,55 @@ function LinkClick() {
   });
 }
 
-
-// Modal
-const buttonsOpen = document.querySelectorAll('.main-chat__task-content');
-const modal = document.getElementById('easyModal');
-const buttonClose = document.getElementsByClassName('modalClose')[0];
-const modalTitle = document.getElementById('modal-title');
-
-// ボタンがクリックされた時
-buttonsOpen.forEach(function(el){
-  el.addEventListener('click', modalOpen);
-  function modalOpen() {
-    modal.style.display = 'block';
-    // const taskData = JSON.parse(el.dataset.task);
-    modalTitle.textContent = this.textContent
-  }
-});
-
-// バツ印がクリックされた時
-buttonClose.addEventListener('click', modalClose);
-function modalClose() {
-  modal.style.display = 'none';
-}
-
-// モーダルコンテンツ以外がクリックされた時
-addEventListener('click', outsideClose);
-function outsideClose(e) {
-  if (e.target == modal) {
+if (document.querySelector('.task-page')) {
+  // Modal
+  const buttonsOpen = document.querySelectorAll('.main-chat__task-content');
+  const modal = document.getElementById('easyModal');
+  const buttonClose = document.getElementsByClassName('modalClose')[0];
+  const modalTitle = document.getElementById('modal-title');
+  
+  // ボタンがクリックされた時
+  buttonsOpen.forEach(function(el){
+    el.addEventListener('click', modalOpen);
+    function modalOpen() {
+      modal.style.display = 'block';
+      // const taskData = JSON.parse(el.dataset.task);
+      modalTitle.textContent = this.textContent
+    }
+  });
+  
+  // バツ印がクリックされた時
+  buttonClose.addEventListener('click', modalClose);
+  function modalClose() {
     modal.style.display = 'none';
   }
+  
+  // モーダルコンテンツ以外がクリックされた時
+  addEventListener('click', outsideClose);
+  function outsideClose(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
 }
+
+
+// nav-menu
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.header__hamburger');
+  const sideBar = document.querySelector('.side-bar');
+  const screenMask = document.querySelector('.screen-mask');
+  
+  hamburger.addEventListener('click', function() {
+    sideBar.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    screenMask.style.display = 'block';
+  });
+  screenMask.addEventListener('click', function () {
+    sideBar.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    this.style.display = 'none';
+  });
+  sideBar.addEventListener('click', function () {
+    this.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    screenMask.style.display = 'none';
+  });
+});
