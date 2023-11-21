@@ -1,12 +1,7 @@
 // サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('DOMContentLoaded', function(){
-  if (document.querySelector('.main-chat')) {LinkClick}
-});
+document.addEventListener('DOMContentLoaded', LinkClick);
 // サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('turbo:load', function(){
-  if (document.querySelector('.main-chat')) {LinkClick}
-});
-
+document.addEventListener('turbo:load', LinkClick);
 
 function LinkClick() {
   const mainChatTask = document.getElementById('main-chat__task');
@@ -44,8 +39,9 @@ function LinkClick() {
   });
 }
 
+
+// Modal
 if (document.querySelector('.main-chat')) {
-  // Modal
   const buttonsOpen = document.querySelectorAll('.main-chat__task-content');
   const modal = document.getElementById('easyModal');
   const buttonClose = document.getElementsByClassName('modalClose')[0];
