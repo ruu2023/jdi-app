@@ -49,16 +49,18 @@ function modalFunction() {
   const buttonClose = document.getElementsByClassName('modalClose')[0];
   const modalTitle = document.getElementById('modal-title');
   const formEdit = document.getElementById('form-edit');
+  const formEditInput = document.getElementById('form-edit__input');
   
   // ボタンがクリックされた時
   buttonsOpen.forEach(function(el){
     el.addEventListener('click', modalOpen);
     function modalOpen() {
       modal.style.display = 'block';
-      // const taskData = JSON.parse(el.dataset.task);
       modalTitle.textContent = this.textContent
       const taskID = this.getAttribute('data-task');
+      const taskContent = this.getAttribute('data-task__content');
       formEdit.action = `/tasks/${taskID}`;
+      formEditInput.value = taskContent;
     }
   });
   
