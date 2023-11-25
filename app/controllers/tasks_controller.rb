@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Task.includes(:user).rank(:row_order)
-    @archives = Archive.all
     @tasks_desc = Task.includes(:user).order(created_at: :desc)
     @task_all = Task.all
+    @archives = Archive.all.order(created_at: :desc)
     @task = Task.new
   end
   
