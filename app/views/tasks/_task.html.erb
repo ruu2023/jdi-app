@@ -5,7 +5,7 @@
     <%= form_with model: task, url: mark_as_done_task_path(task), method: :patch, local: true do |f| %>
       <%= f.submit 'DONE', class: 'main-chat__archive' %>
     <% end %>
-    <span class="main-chat__task-content" data-task="<%= task %>"><%= task.content %></span><!-- /.main-chat__task-content -->
+    <span class="main-chat__task-content" data-task="<%= task.id %>"><%= task.content %></span><!-- /.main-chat__task-content -->
   </div><!-- /.main-chat__task -->
   <div class="main-chat__time">
     <%= l task.created_at %>

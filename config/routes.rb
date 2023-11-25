@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   # resources :folders, only: [:new, :create] do
   # end
-  resources :tasks, only: [:index, :create, :destroy] do
+  resources :tasks, only: [:index, :create, :edit, :update, :destroy] do
     collection do
       delete 'destroy_all', to: 'tasks#destroy_all'
     end

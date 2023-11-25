@@ -18,6 +18,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to root_path
+    else
+      redirect_to root_path, alert: '更新に失敗しました'
+    end
+  end
+
   def destroy_all
     Task.delete_all
     redirect_to root_path, notice: 'All tasks were successfully deleted.'
@@ -51,4 +63,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:content).merge(user_id: current_user.id)
   end
+
 end
