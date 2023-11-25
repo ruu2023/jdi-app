@@ -27,11 +27,12 @@
         </div>
         <div class="modal-body">
         <%# 編集機能を追加したい %>
-          <%= form_with model: @task, class: 'main-chat__bottom', id: 'form', local: true do |f| %>
+          <%= form_with model: @task, class: 'modal-form', id: 'form', local: true do |f| %>
             <div class="main-chat__input-area">
-              <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
+              <%= f.text_field :content, class: 'main-chat__input', value: 'たまご買う' %>
             </div>
-            <%= f.submit '送信', class: 'main-chat__submit'%>
+            <%= f.submit '変更', class: 'main-chat__submit'%>
+            <%= f.submit '削除', class: 'main-chat__delete'%>
           <% end %>
           
         </div>
