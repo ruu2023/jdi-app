@@ -1,14 +1,13 @@
 .account-page .account-page__inner {
-  width: 980px;
+  width: 370px;
   margin: 60px auto;
   padding: 60px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-.account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
-  float: left;
-  width: 50%;
+.account-page__inner--right {
+  height: 280px;
 }
 .account-page .account-page__inner:after {
   clear: both;
@@ -20,13 +19,14 @@
   letter-spacing: 3px;
   font-size: 40px;
   font-weight: 200;
+  text-align: center;
 }
 .account-page .account-page__header h2:after {
   content: "";
   display: block;
-  width: 60px;
+  width: 100%;
   margin-top: 5px;
-  border-bottom: 1px solid #38aef0;
+  border-bottom: 1px solid skyblue;
 }
 .account-page .account-page__header h5 {
   margin-bottom: 20px;
@@ -59,6 +59,7 @@
 .account-page .btn {
   display: inline-block;
   height: 50px;
+  width: 100%;
   padding: 0 30px;
   line-height: 50px;
   letter-spacing: 1px;
