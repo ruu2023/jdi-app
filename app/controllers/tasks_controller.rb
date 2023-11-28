@@ -30,6 +30,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to root_path
+  end
+
   def destroy_all
     Task.delete_all
     redirect_to root_path, notice: 'All tasks were successfully deleted.'

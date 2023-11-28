@@ -49,6 +49,7 @@ function modalFunction() {
   const buttonClose = document.getElementsByClassName('modalClose')[0];
   const modalTitle = document.getElementById('modal-title');
   const formEdit = document.getElementById('form-edit');
+  const formDelete = document.getElementById('form-delete');
   const formEditInput = document.getElementById('form-edit__input');
   
   // ボタンがクリックされた時
@@ -60,6 +61,7 @@ function modalFunction() {
       const taskID = this.getAttribute('data-task');
       const taskContent = this.getAttribute('data-task__content');
       formEdit.action = `/tasks/${taskID}`;
+      formDelete.action = `/tasks/${taskID}`;
       formEditInput.value = taskContent;
     }
   });
