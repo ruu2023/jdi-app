@@ -38,6 +38,7 @@ class TasksController < ApplicationController
 
   def destroy_all
     Task.delete_all
+    Archive.delete_all
     redirect_to root_path, notice: 'All tasks were successfully deleted.'
   end
 
