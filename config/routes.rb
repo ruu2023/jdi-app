@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'tasks/index'
   root to: "tasks#index"
   resources :users, only: [:edit, :update]
-  # resources :folders, only: [:new, :create] do
-  # end
   resources :tasks, only: [:index, :create, :edit, :update, :destroy] do
     collection do
       delete 'destroy_all', to: 'tasks#destroy_all'
