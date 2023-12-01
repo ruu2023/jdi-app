@@ -5,6 +5,8 @@ Just Do It
 # URL
 - http://57.180.91.253/
 # テスト用アカウント
+- Basic認証パスワード 5555
+- Basic認証ID admin
 - メールアドレス test@mail
 - パスワード ch3cooh
 # 利用方法
