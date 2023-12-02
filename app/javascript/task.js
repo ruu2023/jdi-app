@@ -1,7 +1,7 @@
+サイドバー内のリンクをクリックしたときの処理
+document.addEventListener('DOMContentLoaded', LinkClick);
 // サイドバー内のリンクをクリックしたときの処理
-// document.addEventListener('DOMContentLoaded', LinkClick);
-// // サイドバー内のリンクをクリックしたときの処理
-// document.addEventListener('turbo:load', LinkClick);
+document.addEventListener('turbo:load', LinkClick);
 
 function LinkClick() {
   const mainChatTask = document.getElementById('main-chat__task');
@@ -28,15 +28,15 @@ function LinkClick() {
   });
 
   //form送信後の監視
-  const form = document.getElementById('form');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // デフォルトのフォームのサブミットをキャンセル
+  // const form = document.getElementById('form');
+  // form.addEventListener('submit', function(event) {
+  //   event.preventDefault(); // デフォルトのフォームのサブミットをキャンセル
 
-    mainChatTask.style.display = 'block';
-    mainChatArchive.style.display = 'none';
+  //   mainChatTask.style.display = 'block';
+  //   mainChatArchive.style.display = 'none';
 
-    form.submit();// フォームをサブミット
-  });
+  //   form.submit();// フォームをサブミット
+  // });
 }
 
 // document.addEventListener('DOMContentLoaded', modalFunction);
