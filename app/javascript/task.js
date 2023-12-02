@@ -1,4 +1,4 @@
-サイドバー内のリンクをクリックしたときの処理
+// サイドバー内のリンクをクリックしたときの処理
 document.addEventListener('DOMContentLoaded', LinkClick);
 // サイドバー内のリンクをクリックしたときの処理
 document.addEventListener('turbo:load', LinkClick);
