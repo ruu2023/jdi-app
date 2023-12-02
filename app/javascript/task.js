@@ -39,8 +39,8 @@ function LinkClick() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', modalFunction);
-document.addEventListener('turbo:load', modalFunction);
+// document.addEventListener('DOMContentLoaded', modalFunction);
+// document.addEventListener('turbo:load', modalFunction);
 
 function modalFunction() {
   // Modal
