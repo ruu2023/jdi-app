@@ -99,8 +99,8 @@ function navFunction() {
     sideBar.classList.toggle('open'); // openクラスをトグルする
     this.style.display = 'none';
   });
-  sideBar.addEventListener('click', function () {
-    this.classList.toggle('open'); // openクラスをトグルする
-    screenMask.style.display = 'none';
-  });
+  // sideBar.addEventListener('click', function () {
+  //   this.classList.toggle('open'); // openクラスをトグルする
+  //   screenMask.style.display = 'none';
+  // });
 }
