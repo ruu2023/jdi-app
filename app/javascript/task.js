@@ -92,15 +92,15 @@ function navFunction() {
   const screenMask = document.querySelector('.screen-mask');
   
   hamburger.addEventListener('click', function() {
-    sideBar.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    sideBar.classList.toggle('open'); // openクラスをトグルする
     screenMask.style.display = 'block';
   });
   screenMask.addEventListener('click', function () {
-    sideBar.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    sideBar.classList.toggle('open'); // openクラスをトグルする
     this.style.display = 'none';
   });
   sideBar.addEventListener('click', function () {
-    this.style.left = (sideBar.style.left === '0px') ? '-300px' : '0px';
+    this.classList.toggle('open'); // openクラスをトグルする
     screenMask.style.display = 'none';
   });
 }
