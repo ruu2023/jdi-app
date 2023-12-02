@@ -1,6 +1,5 @@
 // サイドバー内のリンクをクリックしたときの処理
 document.addEventListener('DOMContentLoaded', LinkClick);
-// サイドバー内のリンクをクリックしたときの処理
 document.addEventListener('turbo:load', LinkClick);
 
 function LinkClick() {
@@ -26,21 +25,12 @@ function LinkClick() {
     archiveLink.classList.remove('active');
     taskLink.classList.add('active');
   });
-
-  //form送信後の監視
-  // const form = document.getElementById('form');
-  // form.addEventListener('submit', function(event) {
-  //   event.preventDefault(); // デフォルトのフォームのサブミットをキャンセル
-
-  //   mainChatTask.style.display = 'block';
-  //   mainChatArchive.style.display = 'none';
-
-  //   form.submit();// フォームをサブミット
-  // });
 }
 
-// document.addEventListener('DOMContentLoaded', modalFunction);
-// document.addEventListener('turbo:load', modalFunction);
+
+// タスクをクリックしたときの処理
+document.addEventListener('DOMContentLoaded', modalFunction);
+document.addEventListener('turbo:load', modalFunction);
 
 function modalFunction() {
   // Modal
@@ -82,6 +72,7 @@ function modalFunction() {
 }
 
 
+// ハンバーガーをクリックしたときの処理
 document.addEventListener('DOMContentLoaded', navFunction);
 document.addEventListener('turbo:load', navFunction);
 
