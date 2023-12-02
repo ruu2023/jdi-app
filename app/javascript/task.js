@@ -1,7 +1,7 @@
 // サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('DOMContentLoaded', LinkClick);
-// サイドバー内のリンクをクリックしたときの処理
-document.addEventListener('turbo:load', LinkClick);
+// document.addEventListener('DOMContentLoaded', LinkClick);
+// // サイドバー内のリンクをクリックしたときの処理
+// document.addEventListener('turbo:load', LinkClick);
 
 function LinkClick() {
   const mainChatTask = document.getElementById('main-chat__task');
@@ -99,8 +99,8 @@ function navFunction() {
     sideBar.classList.toggle('open'); // openクラスをトグルする
     this.style.display = 'none';
   });
-  // sideBar.addEventListener('click', function () {
-  //   this.classList.toggle('open'); // openクラスをトグルする
-  //   screenMask.style.display = 'none';
-  // });
+  sideBar.addEventListener('click', function () {
+    this.classList.toggle('open'); // openクラスをトグルする
+    screenMask.style.display = 'none';
+  });
 }
