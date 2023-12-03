@@ -95,3 +95,13 @@ function navFunction() {
     screenMask.style.display = 'none';
   });
 }
+
+//iphone対応
+const setFillHeight = () => {
+  const vh = window.innerHeight * 0.01;//ビューポートの高さを取得し、0.01を掛けて1%の値を算出して、vh単位の値を取得
+  document.documentElement.style.setProperty('--vh',`${vh}px`);//カスタム変数--vhの値をドキュメントのルートに設定
+}
+
+window.addEventListener('resize', setFillHeight);//画面のサイズ変動があった時に高さを再計算
+
+setFillHeight();//初期化
