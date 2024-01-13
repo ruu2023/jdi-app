@@ -7,18 +7,18 @@ function LinkClick() {
   const mainChatArchive = document.getElementById('main-chat__archive');
   const archiveLink = document.getElementById('archive-link');
   const taskLink = document.getElementById('task-link');
-
+  
   archiveLink.addEventListener('click', function(event) {
-
+    
     // main_chat_task を非表示にし、main_chat_archive を表示する
     mainChatTask.style.display = 'none';
     mainChatArchive.style.display = 'block';
     archiveLink.classList.add('active');
     taskLink.classList.remove('active');
   });
-
+  
   taskLink.addEventListener('click', function(event) {
-
+    
     // main_chat_task を表示し、main_chat_archive を非表示にする
     mainChatTask.style.display = 'block';
     mainChatArchive.style.display = 'none';
@@ -33,6 +33,28 @@ document.addEventListener('DOMContentLoaded', modalFunction);
 document.addEventListener('turbo:load', modalFunction);
 
 function modalFunction() {
+  // 削除アラートModal
+  const modalAlert = document.getElementById('modalAlert');
+  const buttonClear = document.getElementById('buttonClear');
+  const alertClose = document.getElementById('alertClose')
+  buttonClear.addEventListener('click', modalClearOpen);
+  function modalClearOpen() {
+    modalAlert.style.display = 'block';
+  }
+  // // バツ印がクリックされた時
+  alertClose.addEventListener('click', modalAlertClose);
+  function modalAlertClose() {
+    modalAlert.style.display = 'none';
+  }
+  // // モーダルコンテンツ以外がクリックされた時
+  window.addEventListener('click', function(event) {
+    // クリックされた要素がモーダル要素でない場合
+    if (event.target == modalAlert) {
+      // モーダルを非表示にする
+      modalAlert.style.display = 'none';
+    }
+  });
+  
   // Modal
   const buttonsOpen = document.querySelectorAll('.main-chat__task-content');
   const modal = document.getElementById('easyModal');

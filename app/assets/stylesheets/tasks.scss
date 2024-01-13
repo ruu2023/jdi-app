@@ -11,6 +11,10 @@ $main-width: calc(100vw - 300px);
 $side-bar-padding: 20px;
 $main-chat-padding: 40px;
 
+.lh50 {
+  line-height: 50px;
+}
+
 .wrapper {
   width: 100vw;
   display: flex;
