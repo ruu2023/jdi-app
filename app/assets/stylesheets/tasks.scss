@@ -23,7 +23,7 @@ $main-chat-padding: 40px;
 .side-bar {
   width: 300px;
   height: 100vh;
-  overflow: scroll;
+  // overflow: scroll;
   background: $top-blue;
   &__top {
     display: flex;
@@ -83,9 +83,9 @@ $main-chat-padding: 40px;
     border: solid darkred 1px;
   }
   &__middle {
-    overflow: scroll;
-    min-height: calc(100vh - 190px);
-    min-height: calc(var(--vh, 1vh) * 100 - 190px);
+    // overflow: scroll;
+    // min-height: calc(100vh - 190px);
+    min-height: calc(var(--vh, 1vh) * 100 - 210px);
     padding: 0px $main-chat-padding 0;
     background: $white;
     &--height {
