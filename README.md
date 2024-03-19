@@ -5,8 +5,6 @@ Just Do It
 # URL
 - http://57.180.91.253/
 # テスト用アカウント
-- Basic認証パスワード 5555
-- Basic認証ID admin
 - メールアドレス test@mail
 - パスワード ch3cooh
 # 利用方法
@@ -45,12 +43,11 @@ Just Do It
 # 画面遷移図
 ![window](https://github.com/ruu2023/jdi-app/assets/125800583/d54b8ee0-e924-4752-9673-b9f3882400f6)
 # 開発環境
-- フロントエンド
-- バックエンド
-- インフラ
-- テスト
-- テキストエディタ
-- タスク管理
+- フロントエンド HTML/CSS
+- バックエンド Ruby on Rails
+- インフラ AWS
+- テスト RSpec
+- テキストエディタ VSCode
 # ローカルでの動作方法
 以下のコマンドを順に実行
 ```
