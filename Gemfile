@@ -83,10 +83,6 @@ group :test do
   gem "webdrivers"
 end
 
-group :production do
-  gem 'pg', '~> 1.2'
-
-end
 
 gem 'devise'
 gem 'pry-rails'
