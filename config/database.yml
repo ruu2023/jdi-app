@@ -55,3 +55,4 @@ production:
   database: jdi_app_production
   username: root
   password: jAOndwcxsEWXs
+  socket: /run/mysqld/mysqld.sock
