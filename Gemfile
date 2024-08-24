@@ -59,10 +59,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -88,3 +84,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'ranked-model'
 gem 'requestjs-rails'
+
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
+gem 'net-ssh', '~> 7.2'
