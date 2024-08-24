@@ -8,7 +8,7 @@ Just Do It
 
 # URL
 
-- EC2 インスタンス有料化に伴い公開を停止しております。
+- https://kadaikanriserviceapp.com/
 
 # テスト用アカウント
 
