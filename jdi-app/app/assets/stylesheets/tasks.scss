@@ -1,0 +1,337 @@
+$top-blue: #253151;
+$bottom-blue: #2F3E51;
+$bottom-blue--active: #8a7ed9;
+$white: #fffff3;
+$cream: #fdffd3fa;
+$gray: #DDDDDD;
+$font-white: #fafafafa;
+$message-color: #434A54;
+
+$main-width: calc(100vw - 300px);
+$side-bar-padding: 20px;
+$main-chat-padding: 40px;
+
+.lh50 {
+  line-height: 50px;
+}
+
+.wrapper {
+  width: 100vw;
+  display: flex;
+}
+
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  // overflow: scroll;
+  background: $top-blue;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 $side-bar-padding;
+    background: $top-blue;
+  }
+  &__name {
+    font-size: 16px;
+    color: $font-white;
+  }
+  &__btn {
+    padding: 14px;
+    font-size: 10px;
+    color: deepskyblue;
+    border: solid lightblue 1px;
+  }
+  &__bottom {
+    height: calc(100vh - 100px);
+    padding: 0;
+    background: $bottom-blue;
+  }
+  &__link {
+    display: block;
+    padding: 20px $side-bar-padding;
+    font-size: 16px;
+    color: $font-white;
+    cursor: pointer;
+    &.active {
+      background: $bottom-blue--active;
+    }
+  }
+}
+
+.main-chat {
+  width: $main-width;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background: $white;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 $main-chat-padding;
+    background: $white;
+  }
+  &__name {
+    font-size: 24px;
+    color: #333;
+  }
+  &__btn {
+    padding: 20px;
+    font-size: 10px;
+    color: darkred;
+    border: solid darkred 1px;
+    cursor: pointer;
+  }
+  &__middle {
+    // overflow: scroll;
+    // min-height: calc(100vh - 190px);
+    min-height: calc(var(--vh, 1vh) * 100 - 210px);
+    padding: 0px $main-chat-padding 0;
+    background: $white;
+    &--height {
+      height: calc(100vh - 100px);
+    }
+  }
+  &__message {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: $cream;
+    box-shadow: 10px 5px 5px $gray;
+  }
+  &__check {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    position: relative;
+    width: auto;
+  }
+  &__task {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: $message-color;
+    &-content {
+      cursor: pointer;
+    }
+  }
+  &__archive {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    background: none;
+    color: black;
+    border: solid black 1px;
+  }
+  &__time {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10px;
+    font-size: 12px;
+    color: #999;
+  }
+  &__bottom {
+    display: flex;
+    height: 90px;
+    padding: 20px $main-chat-padding;
+    background: $gray;
+  }
+  &__input-area {
+    width: 100%;
+    background: white;
+  }
+  &__input {
+    width: 100%;
+    height: 50px;
+    border: none;
+  }
+  &__submit {
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #38AEF0;
+    border: none;
+    cursor: pointer;
+  }
+  &__delete {
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+
+// Modal
+.button {
+  background: lightblue;
+  color: #fff;
+  padding: 0 2em;
+  border: 0;
+  width: 500px;
+  height: 100px;
+  font-size: 45px;
+  border-radius: 5px;
+  font-weight: 900;
+  position: relative;
+  left: 400px;
+  top: 260px;
+  font-family: serif;
+}
+
+.button:hover {
+  background: lightcoral;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  height: calc(100vh - 90px);
+  width: $main-width;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.95);
+}
+
+.modal-form {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 50%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.modal-header h1 {
+  margin: 1rem 0;
+}
+
+.modal-header {
+  background: lightblue;
+  padding: 3px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalClose {
+  font-size: 2rem;
+}
+
+.modalClose:hover {
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  color: black;
+  background: $gray;
+}
+
+
+
+// button
+/* ハンバーガーメニュー */
+.header__hamburger {
+  width: 48px;
+  height: 100%;
+}
+
+.hamburger {
+  display: none;
+  background-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  border-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  z-index: 2;
+}
+.hamburger span {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  display: block;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  margin: 8px 0;
+}
+
+.hamburger span:nth-child(3) {
+  top: 0;
+}
+
+.screen-mask {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+// responsive
+@media screen and (max-width: 960px) {
+    
+  .side-bar {
+    position: fixed;
+    width: 300px;
+    z-index: 3;
+    top: 0;
+    height: 100%;
+    transform: translateX(-300px); /* 初期状態で左に非表示 */
+    transition: transform 0.3s ease-in-out; /* スムーズな移動を追加 */
+    &.open {
+      transform: translateX(0); /* openクラスが追加された場合、サイドバーを表示 */
+    }
+  }
+
+  .main-chat {
+    width: 100vw;
+    &__time {
+      display: none;
+    }
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .modal {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
