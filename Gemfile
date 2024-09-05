@@ -92,3 +92,6 @@ gem 'requestjs-rails'
 gem 'ed25519', '~> 1.2'
 gem 'bcrypt_pbkdf', '~> 1.0'
 gem 'net-ssh', '~> 7.2'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'

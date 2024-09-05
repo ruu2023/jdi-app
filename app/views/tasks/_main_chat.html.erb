@@ -6,21 +6,18 @@
       <span></span>
     </button>
     <div class="main-chat__name">
-      
-    </div><!-- /.main-chat__name -->
+    </div>
+    <!-- /.main-chat__name -->
     <div class="main-chat__btn" id="buttonClear">ALL DELETE</div>
-
-
-  </div><!-- /.main-chat__top -->
+  </div>
+  <!-- /.main-chat__top -->
   <div class="main-chat__middle">
-    
     <ul id="main-chat__task" data-controller="sortable">
       <%= render partial: 'task', collection: @tasks %>
     </ul>
     <ul id="main-chat__archive" data-controller="sortable" style="display:none">
       <%= render partial: 'archive', collection: @archives %>
     </ul>
-
     <%# 削除アラートModal %>
     <div id="modalAlert" class="modal">
       <div class="modal-content">
@@ -29,11 +26,11 @@
         </div>
         <div class="modal-body">
           <%= link_to 'Delete', destroy_all_tasks_path, data: { turbo_method: :delete }, class: 'main-chat__delete lh50' %>
-          <div id="alertClose" class="main-chat__submit lh50">Cancel</div><!-- /.main-chat__delete -->
+          <div id="alertClose" class="main-chat__submit lh50">Cancel</div>
+          <!-- /.main-chat__delete -->
         </div>
       </div>
     </div>
-
     <div id="easyModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -53,13 +50,13 @@
         </div>
       </div>
     </div>
-    
-  </div><!-- /.main-chat__middle -->
-  
-    <%= form_with model: @task, class: 'main-chat__bottom', id: 'form', local: true do |f| %>
-      <div class="main-chat__input-area">
-        <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
-      </div>
-      <%= f.submit '送信', class: 'main-chat__submit'%>
-    <% end %>
-</div><!-- /.main-chat -->
+  </div>
+  <!-- /.main-chat__middle -->
+  <%= form_with model: @task, class: 'main-chat__bottom', id: 'form', local: true do |f| %>
+    <div class="main-chat__input-area">
+      <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task', autofocus: true%>
+    </div>
+    <%= f.submit '送信', class: 'main-chat__submit'%>
+  <% end %>
+</div>
+<!-- /.main-chat -->

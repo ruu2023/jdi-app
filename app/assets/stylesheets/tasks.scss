@@ -86,7 +86,7 @@ $main-chat-padding: 40px;
   &__middle {
     // overflow: scroll;
     // min-height: calc(100vh - 190px);
-    min-height: calc(var(--vh, 1vh) * 100 - 210px);
+    min-height: calc(var(--vh, 1vh) * 100 - 208px);
     padding: 0px $main-chat-padding 0;
     background: $white;
     &--height {
@@ -302,7 +302,7 @@ $main-chat-padding: 40px;
 
 // responsive
 @media screen and (max-width: 960px) {
-    
+
   .side-bar {
     position: fixed;
     width: 300px;

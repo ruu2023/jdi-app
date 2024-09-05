@@ -2,3 +2,14 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    attributes:
+      Email: "メールアドレス"
+    errors:
+      messages:
+        blank: "は必須項目です。"
+  errors:
+    messages:
+      not_saved: "ご確認ください。"
+      too_short: "が短かすぎます。"
+      confirmation: "が一致しません。"

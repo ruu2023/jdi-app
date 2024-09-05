@@ -5,33 +5,33 @@
       <h5>登録しているユーザーでログイン</h5>
       <div class="flash-messages">
         <% if flash[:alert] %>
-        <div class="alert alert-danger"><%= flash[:alert] %></div>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
         <% end %> <% if flash[:notice] %>
-        <div class="alert alert-success"><%= flash[:notice] %></div>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
         <% end %>
       </div>
     </div>
     <div class="account-page__inner--right user-form">
       <%= form_with model: resource, as: resource_name, url:
       session_path(resource_name), local: true do |f|%>
-      <div class="field">
-        <div class="field-label"><%= f.label :email%></div>
-        <div class="field-input">
-          <%= f.email_field :email, autofocus: true%>
-        </div>
         <div class="field">
-          <div class="field-label">
-            <%= f.label :password%>
-            <i>(英数字6文字以上)</i>
-          </div>
+          <div class="field-label"><%= f.label :email%></div>
           <div class="field-input">
-            <%= f.password_field :password, autocomplete: "off"%>
+            <%= f.email_field :email, autofocus: true%>
           </div>
+          <div class="field">
+            <div class="field-label">
+              <%= f.label :password%>
+              <i>(英数字6文字以上)</i>
+            </div>
+            <div class="field-input">
+              <%= f.password_field :password, autocomplete: "off"%>
+            </div>
+          </div>
+          <div class="actions"><%= f.submit "Log in", class: 'btn'%></div>
         </div>
-        <div class="actions"><%= f.submit "Log in", class: 'btn'%></div>
-      </div>
       <% end %>
     </div>
-    <%= render "devise/shared/links"%>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn'%>
   </div>
 </div>
