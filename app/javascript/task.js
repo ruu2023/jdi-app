@@ -106,19 +106,19 @@ document.addEventListener("turbo:load", navFunction);
 // nav-menu
 function navFunction() {
   const hamburger = document.querySelector(".header__hamburger");
-  const sideBar = document.querySelector(".side-bar");
+  const sideBar = document.getElementById("sideBar");
   const screenMask = document.querySelector(".screen-mask");
 
   hamburger.addEventListener("click", function () {
-    sideBar.classList.toggle("open"); // openクラスをトグルする
+    sideBar.classList.add("open"); // openクラスをトグルする
     screenMask.style.display = "block";
   });
   screenMask.addEventListener("click", function () {
-    sideBar.classList.toggle("open"); // openクラスをトグルする
+    sideBar.classList.remove("open"); // openクラスをトグルする
     this.style.display = "none";
   });
   sideBar.addEventListener("click", function () {
-    this.classList.toggle("open"); // openクラスをトグルする
+    this.classList.remove("open"); // openクラスをトグルする
     screenMask.style.display = "none";
   });
 }
