@@ -86,7 +86,8 @@ $main-chat-padding: 40px;
   &__middle {
     // overflow: scroll;
     // min-height: calc(100vh - 190px);
-    min-height: calc(var(--vh, 1vh) * 100 - 208px);
+    height: calc(var(--vh, 1vh) * 100 - 190px);
+    overflow: scroll;
     padding: 0px $main-chat-padding 0;
     background: $white;
     &--height {
