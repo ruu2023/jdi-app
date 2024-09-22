@@ -1,13 +1,11 @@
 class TasksController < ApplicationController
-  
+
   def index
-    @tasks = Task.includes(:user).rank(:row_order)
-    @tasks_desc = Task.includes(:user).order(created_at: :desc)
-    @task_all = Task.all
-    @archives = Archive.all.order(created_at: :desc)
+    @tasks = Task.includes(:user).where(user_id: current_user.id).rank(:row_order)
+    @archives = Archive.includes(:user).where(user_id: current_user.id).order(created_at: :desc)
     @task = Task.new
   end
-  
+
   def create
     @task = Task.new(task_params)
     if @task.save
@@ -26,7 +24,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to root_path
     else
-      redirect_to root_path, alert: '更新に失敗しました'
+      redirect_to root_path, alert: 'Fail update'
     end
   end
 
@@ -36,35 +34,28 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
-  def destroy_all
-    Task.delete_all
-    Archive.delete_all
+  def destroy_task_item
+    Task.where(user_id: current_user.id).delete_all
+    redirect_to root_path, notice: 'All tasks were successfully deleted.'
+  end
+
+  def destroy_archive_item
+    Archive.where(user_id: current_user.id).delete_all
     redirect_to root_path, notice: 'All tasks were successfully deleted.'
   end
 
   def sort
     @task = Task.find(params[:id])
     @task.update(row_order_position: params[:row_order_position])
-    head :no_content  
+    head :no_content
   end
 
   def mark_as_done
     task = Task.find(params[:id])
-    done_task = Archive.create(user_id: task.user_id, content: task.content)
+    Archive.create(user_id: task.user_id, content: task.content)
     task.destroy
-    redirect_to root_path, notice: 'Task marked as done successfully.'
+    redirect_to root_path, notice: 'Done successfully.'
   end
-
-  # def update
-  #   set_folder
-  #   @task = Task.find(params[:id])
-  #   if @task.update(folder_id: 1)
-  #     redirect_to folder_tasks_path(@folder)
-  #   end
-  # end
-
-  # , row_order: task.row_order, created_at: task.created_at, updated_at: task.updated_at
-
 
   private
   def task_params

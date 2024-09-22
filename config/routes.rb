@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :tasks, only: [:index, :create, :edit, :update, :destroy] do
     collection do
-      delete 'destroy_all', to: 'tasks#destroy_all'
+      delete 'destroy_task_item', to: 'tasks#destroy_task_item'
+      delete 'destroy_archive_item', to: 'tasks#destroy_archive_item'
     end
     member do
       put :sort

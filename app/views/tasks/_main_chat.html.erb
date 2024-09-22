@@ -8,7 +8,7 @@
     <div class="main-chat__name">
     </div>
     <!-- /.main-chat__name -->
-    <div class="main-chat__btn" id="buttonClear">ALL DELETE</div>
+    <div class="main-chat__btn" id="buttonClear" style="cursor: pointer">ALL DELETE</div>
   </div>
   <!-- /.main-chat__top -->
   <div class="main-chat__middle">
@@ -22,10 +22,11 @@
     <div id="modalAlert" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Are you sure you want to delete all tasks, including the archives? 🎉</h2>
+          <h2>Are you sure you want to delete all <span id="modalMessage">tasks</span>? 🎉</h2>
         </div>
         <div class="modal-body">
-          <%= link_to 'Delete', destroy_all_tasks_path, data: { turbo_method: :delete }, class: 'main-chat__delete lh50' %>
+          <div id="modalDeleteTask" class='main-chat__delete lh50' style="padding: 0;"><%= link_to 'Delete', destroy_task_item_tasks_path, data: { turbo_method: :delete }, style: 'color: white; display:block; width: 100%; margin: 0 20px;' %></div>
+          <div id="modalDeleteArchive" class='main-chat__delete lh50' style="padding: 0; display:none;"><%= link_to 'Delete', destroy_archive_item_tasks_path, data: { turbo_method: :delete }, style: 'color: white; display:block; width: 100%; margin: 0 20px;' %></div>
           <div id="alertClose" class="main-chat__submit lh50">Cancel</div>
           <!-- /.main-chat__delete -->
         </div>
@@ -40,7 +41,7 @@
         <div class="modal-body">
           <%= form_with class: 'modal-form', id: 'form-edit', method: :patch, local: true, scope: :task do |f| %>
             <div class="main-chat__input-area">
-              <%= f.text_field :content, id: 'form-edit__input', class: 'main-chat__input', value: 'たまご買う' %>
+              <%= f.text_field :content, id: 'form-edit__input', class: 'main-chat__input' %>
             </div>
             <%= f.submit '変更', class: 'main-chat__submit'%>
           <% end %>
@@ -56,7 +57,7 @@
     <div class="main-chat__input-area">
       <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task', autofocus: true%>
     </div>
-    <%= f.submit '送信', class: 'main-chat__submit'%>
+    <%= f.submit 'SEND', class: 'main-chat__submit'%>
   <% end %>
 </div>
 <!-- /.main-chat -->

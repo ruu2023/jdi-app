@@ -9,6 +9,7 @@ Just Do It
 # URL
 
 - https://kadaikanriserviceapp.com/
+- ログインページで Login Guest をクリックお願いします。
 
 # テスト用アカウント
 
@@ -58,17 +59,17 @@ Just Do It
 
 # データベース設計
 
-![ER](https://github.com/ruu2023/jdi-app/assets/125800583/69b57bf3-a079-45cd-b81e-32bd8650597d)
+![ER](https://github.com/ruu2023/jdi-app/app/assets/images/database.png)
 
 # 画面遷移図
 
-![window](https://github.com/ruu2023/jdi-app/assets/125800583/d54b8ee0-e924-4752-9673-b9f3882400f6)
+![window](https://github.com/ruu2023/jdi-app/app/assets/images/window.png)
 
 # 開発環境
 
 - フロントエンド HTML/CSS
 - バックエンド Ruby on Rails
-- インフラ AWS
+- インフラ ConohaVPS
 - テスト RSpec
 - テキストエディタ VSCode
 
