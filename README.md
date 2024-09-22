@@ -11,11 +11,6 @@ Just Do It
 - https://kadaikanriserviceapp.com/
 - ログインページで Login Guest をクリックお願いします。
 
-# テスト用アカウント
-
-- メールアドレス test@mail
-- パスワード ch3cooh
-
 # 利用方法
 
 1. メールアドレス・パスワードを入力しログインします。
