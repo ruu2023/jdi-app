@@ -59,11 +59,11 @@ Just Do It
 
 # データベース設計
 
-![ER](https://github.com/ruu2023/jdi-app/app/assets/images/database.png)
+![database](https://github.com/user-attachments/assets/22c156bf-d667-4143-8d50-99a1047f6211)
 
 # 画面遷移図
 
-![window](https://github.com/ruu2023/jdi-app/app/assets/images/window.png)
+![window](https://github.com/user-attachments/assets/3f038095-0a38-43c7-b9b2-ef924c9a97dc)
 
 # 開発環境
 
