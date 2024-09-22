@@ -17,7 +17,7 @@
         <div class="field">
           <div class="field-label"><%= f.label :email%></div>
           <div class="field-input">
-            <%= f.email_field :email, autofocus: true%>
+            <%= f.email_field :email, autofocus: true, value: "test@mail"%>
           </div>
           <div class="field">
             <div class="field-label">
@@ -25,13 +25,15 @@
               <i>(英数字6文字以上)</i>
             </div>
             <div class="field-input">
-              <%= f.password_field :password, autocomplete: "off"%>
+              <%= f.password_field :password, autocomplete: "on", value: "ch3cooh"%>
             </div>
           </div>
           <div class="actions"><%= f.submit "Log in", class: 'btn'%></div>
         </div>
       <% end %>
     </div>
+    <div style="margin: 10px; text-align: center;"><B>ゲスト</b>はこちら👇️</div>
+    <%= button_to 'Login in Guest', guest_sign_in_path, method: :post, class: 'btn', style: "cursor: pointer;"%>
     <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn'%>
   </div>
 </div>

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       patch 'mark_as_done', to: 'tasks#mark_as_done'
     end
   end
+  post '/guest_sign_in', to: 'application#guest_sign_in'
+
 end
