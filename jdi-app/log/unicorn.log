@@ -1,0 +1,42 @@
+I, [2024-08-04T17:47:17.403309 #2144]  INFO -- : Refreshing Gem list
+I, [2024-08-04T17:47:18.636614 #2144]  INFO -- : listening on addr=/home/ubuntu/jdi-app/tmp/unicorn.sock fd=9
+I, [2024-08-04T17:47:18.653928 #2149]  INFO -- : worker=0 ready
+I, [2024-08-04T17:47:18.654019 #2144]  INFO -- : master process ready
+I, [2024-08-04T17:47:18.658873 #2152]  INFO -- : worker=2 ready
+I, [2024-08-04T17:47:18.661166 #2150]  INFO -- : worker=1 ready
+/home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:206:in `pid=': Already running on PID:2144 (or pid=/home/ubuntu/jdi-app/tmp/unicorn.pid is stale) (ArgumentError)
+
+        raise ArgumentError, "Already running on PID:#{x} " \
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/bin/unicorn:128:in `<top (required)>'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `load'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `<main>'
+/home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:206:in `pid=': Already running on PID:2144 (or pid=/home/ubuntu/jdi-app/tmp/unicorn.pid is stale) (ArgumentError)
+
+        raise ArgumentError, "Already running on PID:#{x} " \
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/bin/unicorn:128:in `<top (required)>'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `load'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `<main>'
+/home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:206:in `pid=': Already running on PID:2144 (or pid=/home/ubuntu/jdi-app/tmp/unicorn.pid is stale) (ArgumentError)
+
+        raise ArgumentError, "Already running on PID:#{x} " \
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/ubuntu/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/unicorn-6.1.0/bin/unicorn:128:in `<top (required)>'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `load'
+	from /home/ubuntu/.rbenv/versions/3.2.0/bin/unicorn:25:in `<main>'
+Unicorn master intercepting TERM and sending myself QUIT instead
+I, [2024-08-04T18:09:25.803201 #2144]  INFO -- : reaped #<Process::Status: pid 2149 exit 0> worker=0
+I, [2024-08-04T18:09:25.803309 #2144]  INFO -- : reaped #<Process::Status: pid 2150 exit 0> worker=1
+I, [2024-08-04T18:09:25.803339 #2144]  INFO -- : reaped #<Process::Status: pid 2152 exit 0> worker=2
+I, [2024-08-04T18:09:25.803433 #2144]  INFO -- : master complete
+I, [2024-08-04T18:10:30.613106 #2507]  INFO -- : Refreshing Gem list
+I, [2024-08-04T18:10:31.691284 #2507]  INFO -- : unlinking existing socket=/home/ubuntu/jdi-app/tmp/unicorn.sock
+I, [2024-08-04T18:10:31.691445 #2507]  INFO -- : listening on addr=/home/ubuntu/jdi-app/tmp/unicorn.sock fd=9
+I, [2024-08-04T18:10:31.700000 #2511]  INFO -- : worker=0 ready
+I, [2024-08-04T18:10:31.700495 #2507]  INFO -- : master process ready
+I, [2024-08-04T18:10:31.703396 #2512]  INFO -- : worker=1 ready
+I, [2024-08-04T18:10:31.707797 #2514]  INFO -- : worker=2 ready
