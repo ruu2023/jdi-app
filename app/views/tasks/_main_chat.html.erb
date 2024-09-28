@@ -9,8 +9,8 @@
       <div class="mr-5">
         <div data-controller="clipboard">
           <%# <input data-clipboard-target="source" type="text" value="1234" readonly style="display: none;"> %>
-          <%= button_tag '',data: { controller: "clipboard,", action: "click->clipboard#copy" } do %>
-            <%= heroicon "clipboard-document", variant: :outline, options: { class: "w-5" } %>
+          <%= button_tag '  ',data: { controller: "clipboard,", action: "click->clipboard#copy" } do %>
+            <%= heroicon "clipboard-document", variant: :outline, options: { class: "w-5" ,content:"  " } %>
           <% end %>
         </div>
       </div>
