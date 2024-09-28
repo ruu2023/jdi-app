@@ -6,6 +6,21 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def response_data
+    tasks = Task.includes(:user).where(user_id: current_user.id).rank(:row_order)
+    archives = Archive.includes(:user).where(user_id: current_user.id).order(created_at: :desc)
+    arrayTask = []
+    arrayArchive = []
+    tasks.each do |task|
+      arrayTask.push(task.content)
+    end
+    archives.each do |archive|
+      arrayArchive.push(archive.content)
+    end
+    data = { tasks: arrayTask, archives: arrayArchive } # レスポンスデータ
+    render json: data # JSON形式でデータを返す
+  end
+
   def create
     @task = Task.new(task_params)
     if @task.save

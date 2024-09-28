@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       delete 'destroy_task_item', to: 'tasks#destroy_task_item'
       delete 'destroy_archive_item', to: 'tasks#destroy_archive_item'
+      get 'response_data', to: 'tasks#response_data'
     end
     member do
       put :sort

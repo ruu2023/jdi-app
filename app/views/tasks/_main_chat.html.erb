@@ -1,14 +1,22 @@
 <div class="main-chat">
-  <div class="main-chat__top">
+  <div class="main-chat__top flex">
     <button class="header__hamburger hamburger">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <div class="main-chat__name">
+    <div class="flex items-center ml-auto">
+      <div class="mr-5">
+        <div data-controller="clipboard">
+          <%# <input data-clipboard-target="source" type="text" value="1234" readonly style="display: none;"> %>
+          <%= button_tag '',data: { controller: "clipboard,", action: "click->clipboard#copy" } do %>
+            <%= heroicon "clipboard-document", variant: :outline, options: { class: "w-5" } %>
+          <% end %>
+        </div>
+      </div>
+      <!-- /.main-chat__name -->
+      <div class="main-chat__btn flex items-center" id="buttonClear" style="cursor: pointer"><%= heroicon "trash", variant: :outline, options: { class: "w-4 inline" } %>DELETE</div>
     </div>
-    <!-- /.main-chat__name -->
-    <div class="main-chat__btn" id="buttonClear" style="cursor: pointer">ALL DELETE</div>
   </div>
   <!-- /.main-chat__top -->
   <div class="main-chat__middle">
@@ -22,7 +30,7 @@
     <div id="modalAlert" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Are you sure you want to delete all <span id="modalMessage">task</span>? 🎉</h2>
+          <h2>Are you sure you want to delete all <span id="modalMessage">tasks</span>? 🎉</h2>
         </div>
         <div class="modal-body">
           <div id="modalDeleteTask" class='main-chat__delete lh50' style="padding: 0;"><%= link_to 'Delete', destroy_task_item_tasks_path, data: { turbo_method: :delete }, style: 'color: white; display:block; width: 100%; margin: 0 20px;' %></div>
