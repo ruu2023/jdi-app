@@ -6,7 +6,8 @@ export default class extends Controller {
     this.originalContent = this.element.innerHTML;
   }
 
-  copy() {
+  copy(event) {
+    event.preventDefault();
     fetch("/tasks/response_data", {
       method: "GET",
       headers: {

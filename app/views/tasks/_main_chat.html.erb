@@ -9,7 +9,7 @@
       <div class="mr-5">
         <div data-controller="clipboard">
           <%# <input data-clipboard-target="source" type="text" value="1234" readonly style="display: none;"> %>
-          <%= button_tag '  ',data: { controller: "clipboard", action: "clipboard#copy", class:"flex items-cneter" } do %>
+          <%= button_tag '  ',data: { controller: "clipboard", action: "click->clipboard#copy touchstart->clipboard#copy" } do %>
             <%= heroicon "clipboard-document", variant: :outline, options: { class: "w-5 inline" ,content:"  " } %>copy
           <% end %>
         </div>
