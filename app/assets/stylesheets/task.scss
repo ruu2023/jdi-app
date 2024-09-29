@@ -18,11 +18,12 @@ $main-chat-padding: 40px;
 .wrapper {
   width: 100vw;
   display: flex;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .side-bar {
   width: 300px;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   // overflow: scroll;
   background: $top-blue;
   &__top {
@@ -62,7 +63,7 @@ $main-chat-padding: 40px;
 
 .main-chat {
   width: $main-width;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   background: $white;
   &__top {
     display: flex;
