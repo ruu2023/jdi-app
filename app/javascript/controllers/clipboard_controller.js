@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   // static targets = ["source"];
   connect() {
-    // this.originalContent = this.element.innerHTML;
+    this.originalContent = this.element.innerHTML;
   }
 
   copy(event) {
@@ -43,11 +43,14 @@ export default class extends Controller {
     };
 
     const copyClipBoard = (targetValue) => {
-      if (navigator.clipboard) {
+      if (!navigator.clipboard) {
         navigator.clipboard
           .writeText(targetValue)
           .then(() => {
-            alert("Successfully copied");
+            this.element.textContent = "copied";
+            setTimeout(() => {
+              this.element.innerHTML = this.originalContent;
+            }, 5000);
           })
           .catch((err) => {
             console.error("Error:", err);
@@ -62,17 +65,17 @@ export default class extends Controller {
       // iOSの互換性のためのフォールバック
       const textarea = document.createElement("textarea");
       textarea.value = text;
-      textarea.style.position = "fixed"; // textareaが画面に表示されないように
+      textarea.style.position = "absolute";
+      textarea.style.width = "300px";
+      textarea.style.height = "400px";
+      textarea.style.top = "0";
+      textarea.style.right = "0";
+      textarea.style.zIndex = "1000";
       document.body.appendChild(textarea);
       textarea.select();
-      try {
-        document.execCommand("copy");
-        alert("Successfully copied");
-      } catch (err) {
-        console.error("Error:", err);
-        alert("failed to copy");
-      }
-      document.body.removeChild(textarea);
+      setTimeout(() => {
+        document.body.removeChild(textarea);
+      }, "5000");
     };
   }
 }
