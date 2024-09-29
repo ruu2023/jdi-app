@@ -43,12 +43,39 @@ export default class extends Controller {
     };
 
     const copyClipBoard = (targetValue) => {
-      navigator.clipboard.writeText(targetValue).then(() => {
-        this.element.textContent = "copied";
-        setTimeout(() => {
-          this.element.innerHTML = this.originalContent;
-        }, 5000);
-      });
+      if (navigator.clipboard) {
+        navigator.clipboard
+          .writeText(targetValue)
+          .then(() => {
+            this.element.textContent = "copied";
+            setTimeout(() => {
+              this.element.innerHTML = this.originalContent;
+            }, 5000);
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+            alert("failed to copy. try again please.");
+          });
+      } else {
+        console.warn("Clipboard API is not supported.");
+        fallbackCopyText(targetValue);
+      }
+    };
+    const fallbackCopyText = (text) => {
+      // iOSの互換性のためのフォールバック
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed"; // textareaが画面に表示されないように
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        alert("Successfully copied");
+      } catch (err) {
+        console.error("Error:", err);
+        alert("failed to copy");
+      }
+      document.body.removeChild(textarea);
     };
   }
 }
