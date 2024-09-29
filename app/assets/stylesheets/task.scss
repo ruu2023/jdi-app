@@ -45,7 +45,7 @@ $main-chat-padding: 40px;
     border: solid lightblue 1px;
   }
   &__bottom {
-    height: calc(100vh - 100px);
+    height: calc(100% - 100px);
     padding: 0;
     background: $bottom-blue;
   }
@@ -91,9 +91,6 @@ $main-chat-padding: 40px;
     overflow: scroll;
     padding: 0px $main-chat-padding 0;
     background: $white;
-    &--height {
-      height: calc(100vh - 100px);
-    }
   }
   &__message {
     display: flex;
