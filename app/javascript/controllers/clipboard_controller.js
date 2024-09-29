@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   // static targets = ["source"];
   connect() {
-    this.originalContent = this.element.innerHTML;
+    // this.originalContent = this.element.innerHTML;
   }
 
   copy(event) {
@@ -47,10 +47,7 @@ export default class extends Controller {
         navigator.clipboard
           .writeText(targetValue)
           .then(() => {
-            this.element.textContent = "copied";
-            setTimeout(() => {
-              this.element.innerHTML = this.originalContent;
-            }, 5000);
+            alert("Successfully copied");
           })
           .catch((err) => {
             console.error("Error:", err);
