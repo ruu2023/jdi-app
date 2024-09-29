@@ -51,7 +51,7 @@ export default class extends Controller {
           })
           .catch((err) => {
             console.error("Error:", err);
-            alert("failed to copy. try again please.");
+            fallbackCopyText(targetValue);
           });
       } else {
         console.warn("Clipboard API is not supported.");
