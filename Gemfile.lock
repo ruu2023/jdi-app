@@ -68,7 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    airbrussh (1.5.2)
+    airbrussh (1.5.3)
       sshkit (>= 1.6.1, != 1.7.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -76,7 +76,7 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.3.0)
-    capistrano (3.19.1)
+    capistrano (3.18.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -311,7 +311,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  capistrano
+  capistrano (= 3.18.0)
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
