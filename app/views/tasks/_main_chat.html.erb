@@ -1,39 +1,45 @@
 <div class="main-chat">
-  <div class="main-chat__top">
+  <div class="main-chat__top flex">
     <button class="header__hamburger hamburger">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <div class="main-chat__name">
-      
-    </div><!-- /.main-chat__name -->
-    <div class="main-chat__btn" id="buttonClear">ALL DELETE</div>
-
-
-  </div><!-- /.main-chat__top -->
+    <div class="flex items-center ml-auto">
+      <div class="mr-5">
+        <div data-controller="clipboard">
+          <%# <input data-clipboard-target="source" type="text" value="1234" readonly style="display: none;"> %>
+          <%= button_tag '  ',data: { controller: "clipboard", action: "click->clipboard#copy touchstart->clipboard#copy" } do %>
+            <%= heroicon "clipboard-document", variant: :outline, options: { class: "w-5 inline" ,content:"  " } %>copy
+          <% end %>
+        </div>
+      </div>
+      <!-- /.main-chat__name -->
+      <div class="main-chat__btn flex items-center" id="buttonClear" style="cursor: pointer"><%= heroicon "trash", variant: :outline, options: { class: "w-4 inline" } %>DELETE</div>
+    </div>
+  </div>
+  <!-- /.main-chat__top -->
   <div class="main-chat__middle">
-    
     <ul id="main-chat__task" data-controller="sortable">
       <%= render partial: 'task', collection: @tasks %>
     </ul>
     <ul id="main-chat__archive" data-controller="sortable" style="display:none">
       <%= render partial: 'archive', collection: @archives %>
     </ul>
-
     <%# 削除アラートModal %>
     <div id="modalAlert" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Are you sure you want to delete all tasks, including the archives? 🎉</h2>
+          <h2>Are you sure you want to delete all <span id="modalMessage">tasks</span>? 🎉</h2>
         </div>
         <div class="modal-body">
-          <%= link_to 'Delete', destroy_all_tasks_path, data: { turbo_method: :delete }, class: 'main-chat__delete lh50' %>
-          <div id="alertClose" class="main-chat__submit lh50">Cancel</div><!-- /.main-chat__delete -->
+          <div id="modalDeleteTask" class='main-chat__delete lh50' style="padding: 0;"><%= link_to 'Delete', destroy_task_item_tasks_path, data: { turbo_method: :delete }, style: 'color: white; display:block; width: 100%; margin: 0 20px;' %></div>
+          <div id="modalDeleteArchive" class='main-chat__delete lh50' style="padding: 0; display:none;"><%= link_to 'Delete', destroy_archive_item_tasks_path, data: { turbo_method: :delete }, style: 'color: white; display:block; width: 100%; margin: 0 20px;' %></div>
+          <div id="alertClose" class="main-chat__submit lh50">Cancel</div>
+          <!-- /.main-chat__delete -->
         </div>
       </div>
     </div>
-
     <div id="easyModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -43,7 +49,7 @@
         <div class="modal-body">
           <%= form_with class: 'modal-form', id: 'form-edit', method: :patch, local: true, scope: :task do |f| %>
             <div class="main-chat__input-area">
-              <%= f.text_field :content, id: 'form-edit__input', class: 'main-chat__input', value: 'たまご買う' %>
+              <%= f.text_field :content, id: 'form-edit__input', class: 'main-chat__input' %>
             </div>
             <%= f.submit '変更', class: 'main-chat__submit'%>
           <% end %>
@@ -53,13 +59,13 @@
         </div>
       </div>
     </div>
-    
-  </div><!-- /.main-chat__middle -->
-  
-    <%= form_with model: @task, class: 'main-chat__bottom', id: 'form', local: true do |f| %>
-      <div class="main-chat__input-area">
-        <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task' %>
-      </div>
-      <%= f.submit '送信', class: 'main-chat__submit'%>
-    <% end %>
-</div><!-- /.main-chat -->
+  </div>
+  <!-- /.main-chat__middle -->
+  <%= form_with model: @task, class: 'main-chat__bottom', id: 'form', local: true do |f| %>
+    <div class="main-chat__input-area">
+      <%= f.text_field :content, class: 'main-chat__input', placeholder: 'type a task', autofocus: true%>
+    </div>
+    <%= f.submit 'SEND', class: 'main-chat__submit'%>
+  <% end %>
+</div>
+<!-- /.main-chat -->

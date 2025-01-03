@@ -54,5 +54,5 @@ production:
   adapter: mysql2
   database: jdi_app_production
   username: root
-  password: jAOndwcxsEWXs
-  socket: /run/mysqld/mysqld.sock
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

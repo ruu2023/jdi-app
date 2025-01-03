@@ -1,15 +1,25 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
+<div class="account-page" id="account-page">
+  <div class="account-page__inner clearfix">
+    <div class="account-page__inner--left account-page__header">
       <h2>Log in</h2>
       <h5>登録しているユーザーでログイン</h5>
+      <div class="flash-messages">
+        <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %> <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+      </div>
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
+    <div class="account-page__inner--right user-form">
+      <%= form_with model: resource, as: resource_name, url:
+      session_path(resource_name), local: true do |f|%>
+        <div class="field">
+          <div class="field-label"><%= f.label :email%></div>
+          <div class="field-input">
+            <%= f.email_field :email, autofocus: true, value: "test@mail"%>
           </div>
+<<<<<<< HEAD
           <div class='field-input'>
             <%= f.email_field :email, autofocus: true, value: "test@mail"%>
           </div>
@@ -19,15 +29,23 @@
               <i>(英数字6文字以上)</i>
             </div>
             <div class='field-input'>
+=======
+          <div class="field">
+            <div class="field-label">
+              <%= f.label :password%>
+              <i>(英数字6文字以上)</i>
+            </div>
+            <div class="field-input">
+>>>>>>> 21c32e5a0842d782d302d6c3b2f6c7328709d697
               <%= f.password_field :password, autocomplete: "on", value: "ch3cooh"%>
             </div>
           </div>
-          <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
-          </div>
+          <div class="actions"><%= f.submit "Log in", class: 'btn'%></div>
         </div>
       <% end %>
     </div>
-    <%= render "devise/shared/links"%>
+    <div style="margin: 10px; text-align: center;"><B>ゲスト</b>はこちら👇️</div>
+    <%= button_to 'Login in Guest', guest_sign_in_path, method: :post, class: 'btn', style: "cursor: pointer;"%>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn'%>
   </div>
 </div>

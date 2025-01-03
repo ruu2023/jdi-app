@@ -8,12 +8,8 @@ Just Do It
 
 # URL
 
-- EC2 インスタンス有料化に伴い公開を停止しております。
-
-# テスト用アカウント
-
-- メールアドレス test@mail
-- パスワード ch3cooh
+- https://kadaikanriserviceapp.com/
+- ログインページで Login Guest をクリックお願いします。
 
 # 利用方法
 
@@ -58,17 +54,17 @@ Just Do It
 
 # データベース設計
 
-![ER](https://github.com/ruu2023/jdi-app/assets/125800583/69b57bf3-a079-45cd-b81e-32bd8650597d)
+![database](https://github.com/user-attachments/assets/22c156bf-d667-4143-8d50-99a1047f6211)
 
 # 画面遷移図
 
-![window](https://github.com/ruu2023/jdi-app/assets/125800583/d54b8ee0-e924-4752-9673-b9f3882400f6)
+![window](https://github.com/user-attachments/assets/3f038095-0a38-43c7-b9b2-ef924c9a97dc)
 
 # 開発環境
 
 - フロントエンド HTML/CSS
 - バックエンド Ruby on Rails
-- インフラ AWS
+- インフラ ConohaVPS
 - テスト RSpec
 - テキストエディタ VSCode
 
