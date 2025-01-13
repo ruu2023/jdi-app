@@ -58845,3 +58845,23 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 1.1ms | Allocations: 8851)
 
 
+Started GET "/" for 127.0.0.1 at 2025-01-13 11:00:07 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TasksController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms | Allocations: 3627)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2025-01-13 11:00:08 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/kokihiru/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 727)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4117)
+  Rendered layout layouts/application.html.erb (Duration: 126.1ms | Allocations: 48178)
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 6.4ms | Allocations: 58796)
+
+
+  
+ActionView::Template::Error (link_tree argument must be a directory):
+  
+app/assets/config/manifest.js:1

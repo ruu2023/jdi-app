@@ -88,17 +88,3 @@ gem 'devise'
 gem 'pry-rails'
 gem 'ranked-model'
 gem 'requestjs-rails'
-<<<<<<< HEAD
-=======
-
-gem 'ed25519', '~> 1.2'
-gem 'bcrypt_pbkdf', '~> 1.0'
-gem 'net-ssh', '~> 7.2'
-
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-gem "heroicon"
-gem "tailwindcss-rails"
-
-gem "dartsass-rails", "~> 0.5.1"
->>>>>>> 21c32e5a0842d782d302d6c3b2f6c7328709d697
